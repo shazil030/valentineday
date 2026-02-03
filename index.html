@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentines Day Eish 💗 </title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef, #ffecd2);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in;
+        }
+        h1 {
+            font-size: 3em;
+            color: #e91e63;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .surprise-btn, .final-btn {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 20px;
+        }
+        .surprise-btn:hover, .final-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .gif {
+            width: 200px;
+            height: auto;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s;
+        }
+        .popup-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .popup-content h2 {
+            color: #e91e63;
+        }
+        .popup-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .close-btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .yes-no-btn {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .no-btn {
+            background: #f44336;
+        }
+        .congrats {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            animation: fadeIn 1s;
+        }
+        .congrats-content {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .congrats-content h1 {
+            color: #e91e63;
+            font-size: 2.5em;
+        }
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            color: #ff6b6b;
+            font-size: 2em;
+            animation: float 6s linear infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100vh) rotate(360deg); }
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 2em; }
+            .gif { width: 150px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    <div class="container">
+        <h1>Happy Valentine's Day! 💖</h1>
+        <p>Hey Babes, I've created this little surprise just for you. Click the button below to see what's in store...</p>
+        
+        <!-- Cute GIFs -->
+        <img src="https://giphy.com/gifs/KermitNFT-love-happy-cute-TQoH6O0YJtqUIxoEso" alt="Throw heart" class="gif">
+        <img src="https://giphy.com/gifs/love-kawaii-sweet-VyTVSqRcAwOXH0JTOv" alt="Heart on head" class="gif">
+        <img src="https://giphy.com/gifs/heart-chocolate-cute-thanks-ARUWfZmRfxQer6ErCU" alt="girl dancing" class="gif">
+        
+        <!-- Surprise Button -->
+        <button class="surprise-btn" onclick="showLoveLetter()">Click for a Surprise! 🎁</button>
+        <!-- Final Button -->
+        <button class="final-btn" onclick="showValentineQuestion()">EISH</button>
+    </div>
+
+    <!-- Love Letter Popup -->
+    <div class="popup" id="loveLetterPopup">
+        <div class="popup-content">
+            <h2>Dear Elisha 💗,</h2>
+            <p>On this Valentine's Day, I wanted to take a moment to tell you how much you mean to me. Your smile lights up my world, your laughter is my favorite song, and your friendship is the greatest gift I've ever received. You're kind, funny, and absolutely amazing. I cherish every moment we spend together, and I hope this day brings you all the joy you deserve.  EISH 🎀💗 I wish I could meet you before but unfortunately I am late but it's fine. Happy valentine's day EISH, I hope this makes you happy... I never did such efforts for anyone before but for you I would. 💗😭 Thanks for being my friend... to be honest I like uh.. but you are not my type... and i wont tell you to change yourself for me...  I hope you find someone better who deserves you pookie 💗... Happy Valentine's Day! With all my love, [Shazil Ahmed]</p>
+            <button class="close-btn" onclick="closePopup('loveLetterPopup')">Close</button>
+        </div>
+    </div>
+
+    <!-- Valentine Question Popup -->
+    <div class="popup" id="valentinePopup">
+        <div class="popup-content">
+            <h2>Will you be my Valentine?</h2>
+            <button class="yes-no-btn" onclick="handleResponse('yes')">Yes! 💕</button>
+            <button class="yes-no-btn no-btn" onclick="handleResponse('no')">No, thanks 😊</button>
+        </div>
+    </div>
+
+    <!-- Congratulations Popup -->
+    <div class="congrats" id="congratsPopup">
+        <div class="congrats-content">
+            <h1>Congratulations Elisha Shazil! 🎉</h1>
+            <p>You've made my day! Let's celebrate with some love and joy. 💖</p>
+            <!-- Confetti effect (simple CSS animation) -->
+            <div id="confetti"></div>
+        </div>
+    </div>
+
+    <script>
+        // Function to show love letter popup
+        function showLoveLetter() {
+            document.getElementById('loveLetterPopup').style.display = 'flex';
+        }
+
+        // Function to show Valentine question popup
+        function showValentineQuestion() {
+            document.getElementById('valentinePopup').style.display = 'flex';
+        }
+
+        // Function to close popups
+        function closePopup(popupId) {
+            document.getElementById(popupId).style.display = 'none';
+        }
+
+        // Function to handle yes/no response
+        function handleResponse(response) {
+            closePopup('valentinePopup');
+            if (response === 'yes') {
+                document.getElementById('congratsPopup').style.display = 'flex';
+                // Add confetti effect
+                for (let i = 0; i < 50; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'absolute';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.background = ['#ff6b6b', '#feca57', '#4caf50'][Math.floor(Math.random() * 3)];
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.animation = 'float 3s linear infinite';
+                    document.getElementById('confetti').appendChild(confetti);
+                }
+            } else {
+                alert("That's okay! Friends forever? 😊");
+            }
+        }
+
+        // Add floating hearts animation
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 6 + 's';
+                heartsContainer.appendChild(heart);
+            }
+        }
+        createHearts();
+    </script>
+</body>
+</html>
